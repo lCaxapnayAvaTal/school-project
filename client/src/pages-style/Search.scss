@@ -1,0 +1,99 @@
+.search{
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 50%;
+    &__sidebar{
+        padding: 28px;
+    }
+    color: var(--color);
+    &__form{
+        display: flex;
+        gap: 32px;
+        flex-direction: column;
+        button{
+            display: block;
+            span{
+                justify-content: center;
+            }
+        }
+    }
+    &__search-section{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        label{
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        div{
+            display: flex;
+            width: 100%;
+
+            div{
+                width: 100%;
+                position: relative;
+                input{
+                    padding: 10px;
+                    background-color: var(--search-input);
+                    border: 1px solid var(--border-input);
+                    border-radius: 8px;
+                    outline: none;
+                    color: var(--color);
+                    width: 100%;
+                }
+                input:focus, select:focus{
+                    border: 2px solid rgb(6 182 212);
+                }
+                select{
+                    padding: 10px 40px 10px 10px;
+                    background-color: var(--search-input);
+                    border: 1px solid var(--border-input);
+                    border-radius: 8px;
+                    outline: none;
+                    width: 100%;
+                    color: var(--color);
+                }
+            }
+        }
+    }
+    &__results{
+        width: 100%;
+        h1{
+            padding: 12px;
+            margin-top: 20px;
+            border-bottom: 1px solid rgb(107, 114, 128);
+
+        }
+    }
+    &__posts{
+        padding: 28px;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    &__showmore{
+        width: 100%;
+        background: none;
+        border: none;
+        color:  rgb(6, 148, 162);
+        padding: 12px;
+        padding-top: 30px;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+}
+@media (min-width: 768px) {
+    .search {
+        flex-direction: row;
+        &__sidebar{
+            border-right: 1px solid rgb(107 114 128);
+            min-height: 100vh;
+        }
+        
+    }
+}

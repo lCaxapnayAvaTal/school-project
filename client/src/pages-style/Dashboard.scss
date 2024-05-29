@@ -1,0 +1,30 @@
+.dash-board{
+    min-height: 100vh;
+    display: block;
+    // flex-direction: column;
+    background-color: var(--dashboard-background);
+    // background-color: rgb(244, 245, 252);
+}
+@media (min-width: 768px) {
+    .dash-board{
+        display: flex;
+        // flex-direction: row;
+    }
+}
+// @media (min-width: 1024px) {
+//     .header{
+//         &__wrapper{
+//             max-width: 1024px;
+//         }
+//     }
+// }
+// @media (max-width: 1200px) {
+//     .header {
+//         form{
+//             display: none;
+//         }
+//         &__search-wrapper-t{
+//             display: block;
+//         }
+//     }
+// }

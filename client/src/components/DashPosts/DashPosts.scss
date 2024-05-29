@@ -1,0 +1,120 @@
+.dashposts {
+    padding: 12px;
+    overflow-x: scroll;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color);
+    table-layout: auto;
+    border-radius: 8px;
+    &__table {
+        width: 100%;
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse;
+    }
+    &__thead {
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+    &__th {
+        padding: 12px;
+        background-color: var(--active-background);
+    }
+    &__th:first-child {
+        border-top-left-radius: 8px;
+    }
+    &__th:last-child {
+        border-top-right-radius: 8px;
+    }
+    &__tbody-tr{
+        background-color: var(--header-background-color);
+        color: rgb(156 163 175);
+        &:hover{
+            background-color: var(--dropdown);
+        }
+    }
+    &__tbody-td{
+        padding: 16px 24px;
+        height: 60px;
+        a{
+            text-decoration: none;
+            color: rgb(156 163 175);
+            img{
+                max-width: 110px;
+            }
+        }
+        &:nth-child(4n){
+            color: var(--color);
+        }
+    }
+    &__image{
+        border-radius: 999px;
+        align-self: center;
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        position: relative;
+    }
+    &__user-image{
+        border-radius: 999px;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    &__facheck{
+        color: green;
+    }
+    &__fatimes{
+        color: var(--red-color);
+    }
+    &__change{
+        color: darkcyan;
+        cursor: pointer;
+
+    }
+    &__delete{
+        color: var(--red-color);
+        cursor: pointer;
+    }
+    &__post-slug{
+        color: red;
+    }
+    &__showmore{
+        padding: 28px;
+        text-align: center;
+        cursor: pointer;
+        background: none;
+        border: none;
+        width: 100%;
+        color: darkcyan;
+    }
+    &__tbody:last-child{
+        .dashposts__tbody-tr:last-child{
+            .dashposts__tbody-td:first-child{
+                border-bottom-left-radius: 8px;
+            }
+            .dashposts__tbody-td:last-child{
+                border-bottom-right-radius: 8px;
+            }
+        }
+    }
+    ::-webkit-scrollbar {
+        height: 5px;
+        width: 5px;
+        // border-radius: 999px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #d7d7d7;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        border-radius: 999px;
+        background: #686868;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}

@@ -1,0 +1,105 @@
+
+.dark{
+    --border-color: rgb(75 85 99);
+    --link-color: rgb(229 231 235);
+    --active-color: rgb(44, 130, 176);
+    --active-background:rgb(55, 65, 81);
+    --gradient-background:linear-gradient(90deg, rgba(80,70,193,1) 0%, rgba(184,6,242,1) 50%, rgba(219,41,216,1) 100%);
+    --gradient-background-second:linear-gradient(90deg, rgba(255,138,76,1) 0%, rgba(231,70,148,1) 100%);
+    --color: white;
+    --color-second: black;
+    
+    --transition: .2s;
+    --transition-timing-function: cubic-bezier(.4,0,1,1);
+    --transition-property: all;
+    
+    --background-hover: rgb(156 163 175);
+    --red-color:rgb(240, 82, 82);
+    // !Footer
+    --footer-color:white;
+    // !Header
+    --header-background-color: rgb(31 41 55);
+    --header-sign-in-background-color:rgb(17 24 39);
+    --header-color: white;
+    --header-menu-color: rgb(156 163 175);
+    --header-active-color: white;
+    --header-logo-color: white;
+    --header-mode-svg-color: rgb(156 163 175);
+    --dropdown: rgb(55, 65, 81);
+    --dropdown-hover: rgb(156 163 175);
+    --header-input-border: rgb(75 85 99 );
+
+    //! Sign in
+    --cwithgoogle: rgb(17 24 39);
+    --inputs-background: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+
+    // !dashsidebar
+    --dashsidebar-mark-user: rgb(17 24 39);
+    // !create-post
+    --input-file: rgb(55, 65, 81);
+    --quill-color: rgb(249 250 251 );
+    --th-background: rgb(55, 65, 81);
+    --td-background: rgb(38, 38, 55);
+    // !dash
+    --dash-item: rgb(30, 41, 59 );
+    // ! Home
+    --home-background: rgb(51, 65, 85);
+    //!search
+    --search-input: rgb(55 65 81 );
+    --border-input: rgb(75 85 99);
+    // !dashboard
+    --dashboard-background: rgb(26, 34, 46);
+    .theme-provider{
+        background-color: rgb(16 23 42);
+        min-height: 100vh;
+    }
+}
+.light{
+    --border-color: rgb(229 231 235);
+    --link-color: rgb(55, 65, 81);
+    --active-color: rgb(44, 130, 176);
+    --active-background:rgb(249 250 251 );
+    --gradient-background:linear-gradient(90deg, rgba(80,70,193,1) 0%, rgba(184,6,242,1) 50%, rgba(219,41,216,1) 100%);
+    --gradient-background-second:linear-gradient(90deg, rgba(255,138,76,1) 0%, rgba(231,70,148,1) 100%);
+    --color: rgb(17 24 39);
+    --color-second: white;
+    --transition: .2s;
+    --transition-timing-function: cubic-bezier(.4,0,1,1);
+    --transition-property: all;
+    --background-hover: rgb(243 244 246 );
+    --red-color:rgb(240, 82, 82);
+    // ! Footer
+    --footer-color:rgb(107 114 128);
+    //! Header
+    --header-background-color: rgb(255, 255, 255);
+    --header-sign-in-background-color:white;
+    --header-color: black;
+    --header-color-hover: white;
+    --header-menu-color: rgb(55, 65, 81);
+    --header-active-color: rgb(44, 130, 176);
+    --header-logo-color: black;
+    --header-mode-svg-color: black;
+    --dropdown: white;
+    --dropdown-hover: rgb(229 231 235);
+    --header-input-border: #e5e7eb;
+
+    //! Sign in
+    --cwithgoogle: white;
+    --inputs-background: rgb(249 250 251 );
+
+    // !dashsidebar
+    --dashsidebar-mark-user: rgb(75, 85, 99);
+    // !create-post
+    --input-file: rgb(21, 31, 57);
+    --quill-color: #444;
+    // !DashPosts
+    --th-background: rgb(249 250 251 );
+    --td-background: rgb(239, 243, 246);
+    // ! Home
+    --home-background: rgb(254, 243, 199);
+    //!search
+    --search-input: rgb(249 250 251);
+    --border-input: rgb(209 213 219);
+    // !dashboard
+    --dashboard-background: aliceblue;
+}

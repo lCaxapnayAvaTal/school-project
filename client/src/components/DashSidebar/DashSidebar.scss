@@ -1,0 +1,67 @@
+.dashsidebar{
+    width: 100%;
+    // background-color: rgb(255, 255, 255);
+    background-color: var(--header-background-color);
+    nav{
+        height: 100%;
+    }
+    &__div-one{
+        padding: 16px 12px;
+        border-radius: 4px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 100%;
+        ul{
+            display: flex;
+            gap: 8px;
+            flex-direction: column;
+        }
+    }
+    &__link-name{
+        padding: 0 12px;
+        // width: 100%;
+        white-space: nowrap;
+        flex: 1 1 0%;
+    }
+    &__a{
+        padding: 8px;
+        font-weight: 400;
+        display: flex;
+        color: var(--color);
+        border-radius: 8px;
+        align-items: center;
+        cursor: pointer;
+        text-decoration: none;
+        // span{
+        //     display: none;
+        // }
+        svg{
+            width: 24px;
+            height: 24px;
+        }
+        a{
+            color: inherit;
+        }
+        &.active{
+            background-color: var(--dropdown);
+        }
+    }
+    &__a:hover{
+        background-color: var(--dropdown);
+
+    }
+
+    &__user-mark{
+        background-color: var(--dashsidebar-mark-user);
+        padding: 2px 8px;
+        border-radius: 4px;
+        color: white;
+        font-size: 8px;
+        font-weight: 600;
+    }
+}
+@media (min-width: 768px) {
+    .dashsidebar{
+        width: 14rem;
+    }
+}

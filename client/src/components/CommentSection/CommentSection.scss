@@ -1,0 +1,85 @@
+.comment-section{
+    padding: 12px;
+    max-width: 42rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    &__user-info{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: rgb(107, 114, 128);
+        margin: 20px 0;
+        font-size: 14px;
+        line-height: 20px;
+        img{
+            width: 20px;
+            border-radius: 99px;
+            max-width: 100%;
+            object-fit: cover;
+        }
+        a{
+            font-size: 12px;
+            line-height: 16px;
+            text-decoration: inherit;
+            color: rgb(8 145 178 );
+        }
+    }
+    &__sign-in{
+        margin: 20px 0;
+        font-size: 14px;
+        line-height: 20px;
+        color: rgb(6 148 162);
+        display: flex;
+        gap: 4px;
+    }
+    &__form{
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid rgb(6 148 162 );
+    }
+    &__textarea{
+        padding: 8px 12px;
+        background-color: var(--active-background);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        width: 100%;
+        color: var(--color);
+        resize: vertical;
+        min-height: 50px;
+        max-height: 200px;
+        outline: none;
+    }
+    &__under-textarea{
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-between;
+        align-items: center;
+        p{
+            color: rgb(107 114 128);
+            line-height: 16px;
+            font-size: 12px;
+        }
+    }
+    &__error{
+        color: rgb(155 28 28);
+        background-color: rgb(251 213 213);
+        padding: 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    &__comments{
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    &__comments-length{
+        padding: 4px 8px;
+        border: 1px solid var(--header-menu-color);
+    }
+    
+}

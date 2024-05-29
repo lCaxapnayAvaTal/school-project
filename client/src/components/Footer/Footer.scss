@@ -1,0 +1,108 @@
+.footer{
+    padding: 24px;
+    border: 1px solid var(--active-color);
+    border-top-width: 8px;
+    border-radius: .5rem;
+    width: 100%;
+    margin-top: 50px;
+    &__container{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+    }
+    &__header-link{
+        margin-bottom: 20px;
+    }
+    &__items-wrapper{
+        display: flex;
+        gap: 20px;
+        color: var(--footer-color);
+        div{
+            h2{
+                font-size: .875rem;
+                line-height: 1.25rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 24px;
+            }
+            ul{
+                font-size: .875rem;
+                line-height: 1.25rem;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                li:not(li:first-child){
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+    &__hr{
+        width: 100%;
+        margin: 24px auto;
+        border: 1px solid var(--border-color);
+    }
+    &__bottom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__social-media{
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        div{
+            a{
+                display: flex;
+
+                svg{
+                    color: var(--footer-color);
+                    width: 20px;
+                    height: 20px;
+
+                }
+            }
+        }
+    }
+    &__copyright{
+        color: var(--footer-color);
+        font-size: .875rem;
+        line-height: 1.25rem;
+        a{
+            text-decoration: none;
+            margin-left: 4px;
+            color: var(--footer-color);
+        }
+    }
+}
+@media (max-width: 480px) {
+    .footer {
+        padding: 14px;
+
+        &__container{
+            justify-content: space-between;
+        }
+        &__items-wrapper{
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+        }
+        &__social-media{
+            margin-top: 16px;
+        }
+        &__bottom{
+            flex-direction: column;
+            align-items:baseline ;
+        }
+    }
+}
+@media (min-width: 768px){
+    .footer {
+        &__container{
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        
+    }
+}
