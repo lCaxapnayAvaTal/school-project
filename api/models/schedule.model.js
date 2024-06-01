@@ -1,24 +1,16 @@
 import mongoose from "mongoose";
 
 const subjectSchema = new mongoose.Schema({
-    subject: {
-        type: String,
-    },
-    teacherId: {
-        type: String,
-    },
-    day:{
-        type: String,
-    },
-    time:{
-        type: String,
-    },
-    group: {
-        type: String,
-    },
-    lesson: {
-        type: Number,
-    }
+    subject: String,
+    teacherId: String,
+    day:String,
+    time:String,
+    group: String,
+    lesson: Number,
+    teacherNum: Number,
+    teacherFirstName: String,
+    teacherLastName: String,
+    teacherThirdName: String,
 }
 )
 const scheduleSchema = new mongoose.Schema({

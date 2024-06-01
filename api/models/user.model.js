@@ -52,6 +52,8 @@ const teacherSchema = new mongoose.Schema({
     group: String,
     firstName: String,
     lastName: String,
+    thirdName: String,
+    distinctiveNumber: Number,
     teacherSchedule: teacherscheduleSchema
 })
 const studentSchema = new mongoose.Schema({

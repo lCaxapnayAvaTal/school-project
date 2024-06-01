@@ -25,7 +25,7 @@ const app = express();
 
 app.use(express.json()); //отправить JSON в бэкенд
 app.use(cookieParser()); 
-app.use(cors()); 
+app.use(cors())
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}!`);

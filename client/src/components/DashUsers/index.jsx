@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import './DashUsers.scss'
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { IoIosClose } from "react-icons/io";
 import {HiOutlineExclamationCircle} from "react-icons/hi"
 import {FaCheck,FaTimes} from 'react-icons/fa'
 
 export const DashUsers = () => {
     const { currentUser } = useSelector((state)=>state.user)
+    const userss = useSelector((state)=>state.user.users)
+    console.log(userss);
     const [ users, setUsers] = useState([])
     const [showMore, setShowMore] = useState(true)
     const [showModal, setShowModal] = useState(false)
     const [userIdToDelete, setUserIdToDelete] = useState('')
+    const dispatch = useDispatch()
+    
     useEffect(()=>{
         const fetchUsers = async () => {
             try {
@@ -29,6 +33,8 @@ export const DashUsers = () => {
         if(currentUser.isAdmin){
             fetchUsers()
         }
+
+
     },[currentUser._id])
 
     const handleShowmore = async (e) => {

@@ -4,7 +4,7 @@ import { errorHandler } from "../utils/error.js";
 import jwt from 'jsonwebtoken';
 
 export const createTeacher = async (req, res, next) => {
-    const { firstName, lastName, email, password, subject, group,
+    const { firstName, lastName, thirdName, email, password, subject, group,
         formmasterId, days, time, monday, tuesday, wednesday, thursday, friday, saturday, teacherId
     } = req.body
     
@@ -12,7 +12,7 @@ export const createTeacher = async (req, res, next) => {
     if (!firstName || !lastName || !email || !password || !subject || !monday || firstName === '' || lastName === '' || email === '' || password === '' || subject == '') {
         next(errorHandler(400, 'All fields are required'))
     }
-
+    const lastContact = await User.find({"teacher.isTeacher":true}).sort({$natural:-1}).limit(1);
     const hashedPassword = bcryptjs.hashSync(password, 10) //here was some not understandable problem
 
     const newUser = new User({
@@ -25,6 +25,8 @@ export const createTeacher = async (req, res, next) => {
             group: group,
             firstName:firstName,
             lastName:lastName,
+            thirdName:thirdName,
+            distinctiveNumber:lastContact ? Number(lastContact.map(d=>d.teacher.distinctiveNumber))+1 : 1,
             teacherSchedule: {
                 formmasterId,
                 days,

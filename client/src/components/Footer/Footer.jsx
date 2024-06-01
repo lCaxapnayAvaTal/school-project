@@ -56,9 +56,9 @@ export const Footer = () => {
                             </Link>
                         </div>
                         <div>
-                            <Link>
+                            <a target="_blank" href='https://www.instagram.com/it_licey_naryn/'>
                                 <BsInstagram />
-                            </Link>
+                            </a>
                         </div>
                         <div>
                             <Link>

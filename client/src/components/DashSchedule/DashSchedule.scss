@@ -81,10 +81,7 @@
     &__group-schedule{
         display: flex;
         position:sticky;
-        // color: white;
         table{
-            
-            // border-collapse: collapse;
             thead{
                 tr{
                     th{
@@ -98,9 +95,6 @@
             display: flex;
             justify-content: start;
                 tr{
-                    // &:nth-child(2){
-                    //     display: none;
-                    // }
                     display: flex;
                     flex-direction: column;
                     th{
@@ -113,18 +107,13 @@
                         color: var(--header-mode-svg-color);
                         font-weight: 700;
                         height: 100%;
-                        border: 1px solid black;
+                        border: 1px solid var(--td-border-color);
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        // line-height: 5px;
                         &:first-child{
-                            // border-top-left-radius: 8px;
                             height: 40px ;
                         }
-                        // &:last-child{
-                        //     border-top-right-radius: 8px;
-                        // }
                     }
                     td{
                         padding: 10px 20px;
@@ -134,11 +123,11 @@
                         text-align: center;
                         display: flex;
                         justify-content: center;
-                        border: 1px solid black;
+                        border: 1px solid var(--td-border-color);
                         height: 45px;
                         &:hover{
                             color: red;
-                            background-color: white;
+                            background-color: var(--td-background-hover);
                         }
                     }
                 }
@@ -212,6 +201,9 @@
         &:hover{
             background: none;
         }
+        &.active{
+            background: none;
+        }
     }
     &__change{
         width: 100%;
@@ -239,8 +231,18 @@
         margin-right: auto;
         width: 100%;
         margin-top: 10px;
-
     }
+    // table{
+    //     tbody{
+    //         tr{
+    //             td{
+    //                 &.active{
+    //                     background-color: blue;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     h1{
         padding: 30px;
         text-align: center;

@@ -9,17 +9,6 @@ import shortid from "shortid";
 
 const dayOfTheWeek = [
     {
-        days: [
-            "",
-            "Понедельник",
-            "Вторник",
-            "Среда",
-            "Четверг",
-            "Пятница",
-            "Суббота",
-        ],
-    },
-    {
         time: [
             "8:00 8:45",
             "8:50 9:35",
@@ -76,6 +65,14 @@ const dayOfTheWeek = [
         ],
     },
 ];
+const dayInRus = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+];
 const times = [
     "8:00 8:45",
     "8:50 9:35",
@@ -92,6 +89,14 @@ const days = [
     "thursday",
     "friday",
     "saturday",
+];
+const daysInRussia = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
 ];
 const subjects = [
     "математика",
@@ -111,6 +116,7 @@ const subjects = [
     "кыргызский язык",
     "география",
     "ДПМ2",
+    "английский язык",
 ];
 export const DashSchedule = () => {
     const { currentUser } = useSelector((state) => state.user);
@@ -124,16 +130,19 @@ export const DashSchedule = () => {
     const [teacher, setTeacher] = useState(``);
     const [teacherId, setTeacherId] = useState();
 
-    console.log(currentUser._id);
     const handleChange = (e) => {
         const obj = {};
         days.forEach((day) => {
-            obj[day] = times.map((time, index) => ({
-                time: time,
-                day: day,
-                [e.target.id]: e.target.value.trim(),
-                lesson: index + 1,
-            }));
+            obj[day] = times.map((time, index) => {
+                dayInRus.map((rus) => ({
+                    time: time,
+                    day: day,
+                    [e.target.id]: e.target.value.trim(),
+                    lesson: index + 1,
+                    dayInRus: rus,
+                })
+                );
+            });
         });
         setFormData({ ...obj, [e.target.id]: e.target.value.trim() });
     };
@@ -215,8 +224,6 @@ export const DashSchedule = () => {
         }
     }, [currentUser._id]);
     // subjects.map(s=>teachers.map(teacher=>teacher.teacher.subject.length>1?teacher.teacher.subject.map(sub=>sub==s&&console.log(s,sub)):teacher.teacher.subject==s &&console.log(s,'ddfdsdffdghrertghrfefghgh')))
-    console.log(teacher, teacherId, subject);
-    console.log(schedules);
     return (
         <div className="schedule">
             <div>
@@ -264,77 +271,79 @@ export const DashSchedule = () => {
                         <p>Загрузка</p>
                     )}
                 </div>
-                    {currentUser.isAdmin && schedules.length > 0 ? (
-                        schedules.map((schedule) => (
-                            <div
-                                className="schedule__group"
-                                key={shortid.generate()}
-                            >
-                                <button className="header__sign-in">
-                                    <Link to={`/change-schedule/${schedule._id}`}>
-                                        <span className="schedule__change">
-                                            Изменить
-                                        </span>
-                                    </Link>
-                                </button>
-                                <Schedule days={days} schedule={schedule} />
-                            </div>
-                        ))
-                    ) : (
-                        <p>Загрузка</p>
-                    )}
+                {currentUser.isAdmin && schedules.length > 0 ? (
+                    schedules.map((schedule) => (
+                        <div
+                            className="schedule__group"
+                            key={shortid.generate()}
+                        >
+                            <button className="header__sign-in">
+                                <Link to={`/change-schedule/${schedule._id}`}>
+                                    <span className="schedule__change">
+                                        Изменить
+                                    </span>
+                                </Link>
+                            </button>
+                            <Schedule days={days} schedule={schedule} />
+                        </div>
+                    ))
+                ) : (
+                    <p>Загрузка</p>
+                )}
             </div>
             <div className="schedule__teachers">
                 <h3 className="schedule__h3">Учителя</h3>
                 <ul className="schedule__teachers-list">
-                    {
-                        // teachers.map(teacher=>(
-                        //     <DashSubjects teacher={teacher}/>
-
-                        // ))
-                        subjects.map((s) => (
-                            <li
-                                key={shortid.generate()}
-                                className="schedule__subject-cont"
-                            >
-                                <div className="schedule__subject"><span className="schedule__subject-span">{s}</span></div>
-                                {teachers.map((teacher) =>
-                                    teacher.teacher.subject.length > 1
-                                        ? teacher.teacher.subject.map(
-                                              (sub) =>
-                                                  sub == s && (
-                                                      <div
-                                                          key={shortid.generate()}
-                                                          className="schedule__teacher"
-                                                          onClick={() => {
-                                                              setTeacherId(
-                                                                  teacher._id
-                                                              );
-                                                              setTeacher(
-                                                                  `${teacher.teacher.firstName} ${teacher.teacher.lastName}`
-                                                              );
-                                                              setSubject(s);
-                                                          }}
-                                                      ><span className="schedule__teacher-span">{`${teacher.teacher.firstName} ${teacher.teacher.lastName}`}</span></div>
-                                                  )
-                                          )
-                                        : teacher.teacher.subject == s && (
-                                              <div
-                                                  onClick={() => {
-                                                      setTeacherId(teacher._id);
-                                                      setTeacher(
-                                                          `${teacher.teacher.firstName} ${teacher.teacher.lastName}`
-                                                      );
-                                                      setSubject(s);
-                                                  }}
-                                                  className="schedule__teacher"
-                                                  key={shortid.generate()}
-                                              ><span className="schedule__teacher-span">{`${teacher.teacher.firstName} ${teacher.teacher.lastName}`}</span></div>
-                                          )
-                                )}
-                            </li>
-                        ))
-                    }
+                    {subjects.map((s) => (
+                        <li
+                            key={shortid.generate()}
+                            className="schedule__subject-cont"
+                        >
+                            <div className="schedule__subject">
+                                <span className="schedule__subject-span">
+                                    {s}
+                                </span>
+                            </div>
+                            {teachers.map((teacher) =>
+                                teacher.teacher.subject.length > 1
+                                    ? teacher.teacher.subject.map(
+                                          (sub) =>
+                                              sub == s && (
+                                                  <div
+                                                      key={shortid.generate()}
+                                                      className="schedule__teacher"
+                                                      onClick={() => {
+                                                          setTeacherId(
+                                                              teacher._id
+                                                          );
+                                                          setTeacher(
+                                                              `${teacher.teacher.firstName} ${teacher.teacher.lastName}`
+                                                          );
+                                                          setSubject(s);
+                                                      }}
+                                                  >
+                                                      <span className="schedule__teacher-span">{`${teacher.teacher.firstName} ${teacher.teacher.lastName} ${teacher.teacher.thirdName} ${teacher.teacher.distinctiveNumber}`}</span>
+                                                  </div>
+                                              )
+                                      )
+                                    : teacher.teacher.subject == s && (
+                                          <div
+                                              onClick={() => {
+                                                  setTeacherId(teacher._id);
+                                                  setTeacher(
+                                                      `${teacher.teacher.firstName} ${teacher.teacher.lastName}`
+                                                  );
+                                                  setSubject(s);
+                                              }}
+                                              className="schedule__teacher"
+                                              key={shortid.generate()}
+                                          >
+                                              <span className="schedule__teacher-span">{`${teacher.teacher.firstName} ${teacher.teacher.lastName} ${teacher.teacher.thirdName} ${teacher.teacher.distinctiveNumber}`}</span>
+                                          </div>
+                                      )
+                            )}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

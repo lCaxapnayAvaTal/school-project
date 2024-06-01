@@ -42,7 +42,7 @@ export const Schedule = ({ schedule }) => {
                                                 subject.teacherId,
                                                 subject.group,
                                                 subject.lesson,
-                                            )} key={subject._id}>{subject.subject}</td>
+                                            )} key={subject._id}>{subject.subject} {subject.teacherNum}</td>
                                     ))
                                 ) : (
                                     <td>Предмет</td>

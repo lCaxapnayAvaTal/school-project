@@ -38,6 +38,7 @@ export const CreateTeacher = () => {
             }));
         });
         e.target.id == 'subject' ? (
+            
             setFormData({ ...obj, ...formData, [e.target.id]: e.target.value.trim().split(' '), })
         ): setFormData({ ...obj, ...formData, [e.target.id]: e.target.value.trim()})
     };
@@ -107,6 +108,19 @@ export const CreateTeacher = () => {
                                         placeholder="Фамилия"
                                         onChange={handleChange}
                                         id="lastName"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="sign-up__username">
+                            <label>Отчество</label>
+                            <div>
+                                <div>
+                                    <input
+                                        type="text"
+                                        placeholder="Отчество"
+                                        onChange={handleChange}
+                                        id="thirdName"
                                     />
                                 </div>
                             </div>
